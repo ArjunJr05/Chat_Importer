@@ -50,13 +50,6 @@ public class WhatsAppExport {
 
     /**
      * @param chatName the display name of this chat
-     */
-    public WhatsAppExport(String chatName) {
-        this.chatName = chatName;
-    }
-
-    /**
-     * @param chatName the display name of this chat
      * @param messages the ordered list of parsed messages
      */
     public WhatsAppExport(String chatName, List<Message> messages) {
