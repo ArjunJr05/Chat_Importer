@@ -2,9 +2,7 @@ package com.zoho.arattai.core;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.stream.Collectors;
 
-import com.zoho.arattai.Message.*;
 import com.zoho.arattai.core.Message.MessageType;
 
 /**
@@ -67,26 +65,6 @@ public class WhatsAppExport {
     }
 
     /**
-     * Replaces the entire message list with the supplied list.
-     * Called once by the parser after it has processed the full transcript.
-     *
-     * @param messages the ordered list of parsed messages; must not be {@code null}
-     */
-    public void setAllMessages(List<Message> messages) {
-        this.messages = messages;
-    }
-
-    /**
-     * Appends a single message to the end of the list.
-     * Use this method when building the export incrementally.
-     *
-     * @param message the message to append; must not be {@code null}
-     */
-    public void addMessage(Message message) {
-        this.messages.add(message);
-    }
-
-    /**
      * Returns the complete, ordered list of all messages in this export.
      *
      * @return an unmodifiable view of the message list; never {@code null}
@@ -102,133 +80,5 @@ public class WhatsAppExport {
      */
     public String getChatName() {
         return chatName;
-    }
-
-    /**
-     * Returns the total number of parsed messages.
-     *
-     * @return message count, zero or more
-     */
-    public int getMessageCount() {
-        return messages.size();
-    }
-
-    /**
-     * Returns all plain-text messages in this export, preserving their
-     * original order.
-     *
-     * @return a new list containing only {@link TextMessage} instances;
-     *         never {@code null}, may be empty
-     */
-    public List<TextMessage> getTextMessages() {
-        return messages.stream()
-                .filter(m -> m instanceof TextMessage)
-                .map(m -> (TextMessage) m)
-                .collect(Collectors.toList());
-    }
-
-    /**
-     * Returns all image messages in this export, preserving their
-     * original order.
-     *
-     * @return a new list containing only {@link ImageMessage} instances;
-     *         never {@code null}, may be empty
-     */
-    public List<ImageMessage> getImageMessages() {
-        return messages.stream()
-                .filter(m -> m instanceof ImageMessage)
-                .map(m -> (ImageMessage) m)
-                .collect(Collectors.toList());
-    }
-
-    /**
-     * Returns all video messages in this export, preserving their
-     * original order.
-     *
-     * @return a new list containing only {@link VideoMessage} instances;
-     *         never {@code null}, may be empty
-     */
-    public List<VideoMessage> getVideoMessages() {
-        return messages.stream()
-                .filter(m -> m instanceof VideoMessage)
-                .map(m -> (VideoMessage) m)
-                .collect(Collectors.toList());
-    }
-
-    /**
-     * Returns all audio messages in this export, preserving their
-     * original order.
-     *
-     * @return a new list containing only {@link AudioMessage} instances;
-     *         never {@code null}, may be empty
-     */
-    public List<AudioMessage> getAudioMessages() {
-        return messages.stream()
-                .filter(m -> m instanceof AudioMessage)
-                .map(m -> (AudioMessage) m)
-                .collect(Collectors.toList());
-    }
-
-    /**
-     * Returns all document/file-attachment messages in this export,
-     * preserving their original order.
-     *
-     * @return a new list containing only {@link DocumentMessage} instances;
-     *         never {@code null}, may be empty
-     */
-    public List<DocumentMessage> getDocumentMessages() {
-        return messages.stream()
-                .filter(m -> m instanceof DocumentMessage)
-                .map(m -> (DocumentMessage) m)
-                .collect(Collectors.toList());
-    }
-
-    /**
-     * Returns all animated-sticker messages in this export, preserving
-     * their original order.
-     *
-     * @return a new list containing only {@link StickerMessage} instances;
-     *         never {@code null}, may be empty
-     */
-    public List<StickerMessage> getStickerMessages() {
-        return messages.stream()
-                .filter(m -> m instanceof StickerMessage)
-                .map(m -> (StickerMessage) m)
-                .collect(Collectors.toList());
-    }
-
-    /**
-     * Returns all messages that match the given {@link MessageType}.
-     *
-     * @param type the message category to filter by; must not be {@code null}
-     * @return a new list of matching {@link Message} instances in original order;
-     *         never {@code null}, may be empty
-     */
-    public List<Message> getMessagesByType(MessageType type) {
-        return messages.stream()
-                .filter(m -> m.messageType == type)
-                .collect(Collectors.toList());
-    }
-
-    /**
-     * Prints a formatted category summary to standard output.
-     *
-     * <p>
-     * The output includes the chat name, total message count, and individual
-     * counts for each of the six supported message categories (TEXT, IMAGE, VIDEO,
-     * AUDIO, DOCUMENT, STICKER).
-     */
-    public void printCategorySummary() {
-        System.out.println("\n======== MESSAGE CATEGORIES ========");
-        System.out.println("Chat Name: " + chatName);
-        System.out.println("Total Messages: " + getMessageCount());
-        System.out.println("-----------------------------------");
-        System.out.println("Text Messages:     " + getTextMessages().size());
-        System.out.println("Image Messages:    " + getImageMessages().size());
-        System.out.println("Video Messages:    " + getVideoMessages().size());
-        System.out.println("Audio Messages:    " + getAudioMessages().size());
-        System.out.println("Document Messages: " + getDocumentMessages().size());
-        System.out.println("Sticker Messages:  " + getStickerMessages().size());
-        System.out.println("====================================\n");
     }
 }

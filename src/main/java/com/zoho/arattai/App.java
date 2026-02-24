@@ -90,11 +90,8 @@ public class App {
             // High-level summary
             System.out.println("\n========== SUMMARY ==========");
             System.out.println("Chat Name: " + export.getChatName());
-            System.out.println("Total messages parsed: " + export.getMessageCount());
+            System.out.println("Total messages parsed: " + export.getAllMessages().size());
             System.out.println("=============================\n");
-
-            // Per-category counts
-            export.printCategorySummary();
 
             // Full chronological message list
             printAllMessages(export);
@@ -124,7 +121,7 @@ public class App {
     private static void printAllMessages(WhatsAppExport export) {
         System.out.println("\n========== COMPLETE ARRAYLIST DATA ==========");
         System.out.println("Chat Name: " + export.getChatName());
-        System.out.println("Total Messages: " + export.getMessageCount());
+        System.out.println("Total Messages: " + export.getAllMessages().size());
         System.out.println("=============================================\n");
 
         List<Message> messages = export.getAllMessages();
