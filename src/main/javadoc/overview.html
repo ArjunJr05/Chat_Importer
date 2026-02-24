@@ -2,8 +2,6 @@
 <html>
 
 <head>
-    <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
-    <script>mermaid.initialize({ startOnLoad: true });</script>
     <style>
         .arch-container {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -13,19 +11,21 @@
             border-radius: 12px;
             border: 1px solid #e1e4e8;
             box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+            text-align: center;
         }
 
         .arch-title {
             color: #1a73e8;
-            text-align: center;
             font-size: 26px;
             margin-bottom: 30px;
             font-weight: 600;
         }
 
-        .mermaid {
-            display: flex;
-            justify-content: center;
+        .arch-image {
+            max-width: 100%;
+            height: auto;
+            border: 1px solid #eee;
+            border-radius: 8px;
             margin: 20px 0;
         }
 
@@ -36,6 +36,7 @@
             color: #444;
             line-height: 1.7;
             font-size: 15px;
+            text-align: left;
         }
 
         .arch-description strong {
@@ -46,20 +47,9 @@
 
 <body>
     <div class="arch-container">
-        <h2 class="arch-title">System Architecture Flow</h2>
+        <h2 class="arch-title">System Architecture Diagram</h2>
 
-        <div class="mermaid">
-            graph LR
-            A[fa:fa-file-archive WhatsApp ZIP Export<br />Media + .txt] --> B{fa:fa-cogs WhatsAppChatParser<br />Core
-            Parsing Logic}
-            B --> C[fa:fa-envelope-open Message Objects<br />Text, Image, Video, Audio]
-            C --> D[fa:fa-clipboard-list WhatsAppExport<br />Complete Parsed Set]
-
-            style A fill:#e3f2fd,stroke:#1a73e8,stroke-width:2px
-            style B fill:#e8f5e9,stroke:#2e7d32,stroke-width:2px
-            style C fill:#f3e5f5,stroke:#7b1fa2,stroke-width:2px
-            style D fill:#fff9c4,stroke:#fbc02d,stroke-width:2px
-        </div>
+        <img src="doc-files/architecture.jpg" alt="Architecture Diagram" class="arch-image">
 
         <div class="arch-description">
             <p>The <strong>Arattai WhatsApp Chat Parser</strong> provides a robust pipeline for converting raw WhatsApp
