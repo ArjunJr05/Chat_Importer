@@ -40,13 +40,13 @@ public class WhatsAppExport {
      * The prefix {@code "WhatsApp Chat with "} and the {@code .zip} extension
      * are stripped automatically by the parser.
      */
-    private final String chatName;
+    public final String chatName;
 
     /**
      * All messages in chronological order exactly as they appear
      * in the WhatsApp transcript file.
      */
-    private List<Message> messages = new ArrayList<>();
+    public List<Message> messages = new ArrayList<>();
 
     /**
      * @param chatName the display name of this chat
@@ -60,7 +60,7 @@ public class WhatsAppExport {
     /**
      * Returns the complete, ordered list of all messages in this export.
      *
-     * @return an unmodifiable view of the message list; never {@code null}
+     * @return an unmodifiable view of the message list
      */
     public List<Message> getAllMessages() {
         return messages;
@@ -69,7 +69,7 @@ public class WhatsAppExport {
     /**
      * Returns the display name of the chat.
      *
-     * @return the chat name; never {@code null}
+     * @return the chat name
      */
     public String getChatName() {
         return chatName;

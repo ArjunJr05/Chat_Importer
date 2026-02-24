@@ -48,7 +48,7 @@ public class App {
      * Format: {@code dd/MM/yyyy, hh:mm:ss a} (e.g.,
      * {@code 23/02/2026, 12:25:18 am}).
      */
-    private static final SimpleDateFormat DISPLAY_FORMAT = new SimpleDateFormat("dd/MM/yyyy, hh:mm:ss a");
+    public static final SimpleDateFormat DISPLAY_FORMAT = new SimpleDateFormat("dd/MM/yyyy, hh:mm:ss a");
 
     /**
      * Application entry point.
@@ -118,7 +118,7 @@ public class App {
      *
      * @param export the fully-parsed chat export; must not be {@code null}
      */
-    private static void printAllMessages(WhatsAppExport export) {
+    public static void printAllMessages(WhatsAppExport export) {
         System.out.println("\n========== COMPLETE ARRAYLIST DATA ==========");
         System.out.println("Chat Name: " + export.getChatName());
         System.out.println("Total Messages: " + export.getAllMessages().size());
@@ -148,7 +148,7 @@ public class App {
      * @param msg      the message to print; must not be {@code null}
      * @param chatName the name of the chat, printed on each line for context
      */
-    private static void printMessage(Message msg, String chatName) {
+    public static void printMessage(Message msg, String chatName) {
         if (msg instanceof TextMessage) {
             TextMessage m = (TextMessage) msg;
             System.out.println("Chat Name: " + chatName);
@@ -227,7 +227,7 @@ public class App {
      * @return the formatted date/time string (e.g.,
      *         {@code "23/02/2026, 12:25:18 am"})
      */
-    private static String fmt(Date d) {
+    public static String fmt(Date d) {
         return DISPLAY_FORMAT.format(d);
     }
 }

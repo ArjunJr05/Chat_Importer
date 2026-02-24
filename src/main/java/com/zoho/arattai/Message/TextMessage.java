@@ -19,7 +19,7 @@ import com.zoho.arattai.core.Message;
  * </ul>
  *
  * <p>
- * All fields are immutable ({@code private final}) and initialised at
+ * All fields are immutable ({@code public final}) and initialised at
  * construction time.
  *
  * @author Zoho Arattai
@@ -33,7 +33,7 @@ public class TextMessage extends Message {
      * The raw text content of the message exactly as it appears in
      * the WhatsApp transcript (including emoji and special characters).
      */
-    private final String text;
+    public final String text;
 
     /**
      * Constructs a new {@code TextMessage}.

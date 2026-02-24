@@ -24,7 +24,7 @@ import com.zoho.arattai.core.Message;
  * reading the {@code tkhd} (Track Header) box from the video track.
  *
  * <p>
- * All fields are immutable ({@code private final}) and initialised at
+ * All fields are immutable ({@code public final}) and initialised at
  * construction time.
  *
  * @author Zoho Arattai
@@ -35,32 +35,32 @@ import com.zoho.arattai.core.Message;
 public class VideoMessage extends Message {
 
     /** The filename of the video file as stored inside the export ZIP. */
-    private final String videoName;
+    public final String videoName;
 
     /** The uncompressed file size of the video in bytes. */
-    private final int videoSize;
+    public final int videoSize;
 
     /**
      * The playback duration of the video, formatted as {@code "m:ss"}
      * (e.g., {@code "2:45"}). Defaults to {@code "0:00"} when extraction fails.
      */
-    private final String videoDuration;
+    public final String videoDuration;
 
     /**
      * The lowercase file extension identifying the video container format
      * (e.g., {@code "mp4"}, {@code "mkv"}).
      */
-    private final String videoType;
+    public final String videoType;
 
     /**
      * The horizontal resolution of the video in pixels, or {@code 0} if unknown.
      */
-    private final int videoWidth;
+    public final int videoWidth;
 
     /**
      * The vertical resolution of the video in pixels, or {@code 0} if unknown.
      */
-    private final int videoHeight;
+    public final int videoHeight;
 
     /**
      * Constructs a new {@code VideoMessage} with all metadata provided by the

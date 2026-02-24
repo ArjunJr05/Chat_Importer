@@ -22,7 +22,7 @@ import com.zoho.arattai.core.Message;
  * format, corrupted data, etc.) the dimensions default to {@code 0}.
  *
  * <p>
- * All fields are immutable ({@code private final}) and initialised at
+ * All fields are immutable ({@code public final}) and initialised at
  * construction time.
  *
  * @author Zoho Arattai
@@ -34,22 +34,22 @@ import com.zoho.arattai.core.Message;
 public class ImageMessage extends Message {
 
     /** The filename of the image as stored inside the export ZIP. */
-    private final String imageName;
+    public final String imageName;
 
     /** The vertical dimension of the image in pixels, or {@code 0} if unknown. */
-    private final int imageHeight;
+    public final int imageHeight;
 
     /** The horizontal dimension of the image in pixels, or {@code 0} if unknown. */
-    private final int imageWidth;
+    public final int imageWidth;
 
     /** The uncompressed file size of the image in bytes. */
-    private final int imageSize;
+    public final int imageSize;
 
     /**
      * The lowercase file extension that identifies the image format
      * (e.g., {@code "jpg"}, {@code "png"}, {@code "webp"}).
      */
-    private final String imageType;
+    public final String imageType;
 
     /**
      * Constructs a new {@code ImageMessage} with all metadata provided by the

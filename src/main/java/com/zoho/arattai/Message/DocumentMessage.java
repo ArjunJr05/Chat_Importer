@@ -19,7 +19,7 @@ import com.zoho.arattai.core.Message;
  * size) is captured.
  *
  * <p>
- * All fields are immutable ({@code private final}) and initialised at
+ * All fields are immutable ({@code public final}) and initialised at
  * construction time.
  *
  * @author Zoho Arattai
@@ -30,16 +30,16 @@ import com.zoho.arattai.core.Message;
 public class DocumentMessage extends Message {
 
     /** The filename of the document as stored inside the export ZIP. */
-    private final String documentName;
+    public final String documentName;
 
     /**
      * The lowercase file extension identifying the document format
      * (e.g., {@code "pdf"}, {@code "docx"}, {@code "zip"}).
      */
-    private final String documentType;
+    public final String documentType;
 
     /** The uncompressed file size of the document in bytes. */
-    private final int documentSize;
+    public final int documentSize;
 
     /**
      * Constructs a new {@code DocumentMessage} with all metadata provided by the

@@ -29,7 +29,7 @@ import com.zoho.arattai.core.Message;
  * </ul>
  *
  * <p>
- * All fields are immutable ({@code private final}) and initialised at
+ * All fields are immutable ({@code public final}) and initialised at
  * construction time.
  *
  * @author Zoho Arattai
@@ -40,22 +40,22 @@ import com.zoho.arattai.core.Message;
 public class AudioMessage extends Message {
 
     /** The filename of the audio file as stored inside the export ZIP. */
-    private final String audioName;
+    public final String audioName;
 
     /** The uncompressed file size of the audio in bytes. */
-    private final int audioSize;
+    public final int audioSize;
 
     /**
      * The playback duration of the audio clip, formatted as {@code "m:ss"}
      * (e.g., {@code "0:05"}). Defaults to {@code "0:00"} when extraction fails.
      */
-    private final String audioDuration;
+    public final String audioDuration;
 
     /**
      * The lowercase file extension identifying the audio format
      * (e.g., {@code "opus"}, {@code "mp3"}).
      */
-    private final String audioType;
+    public final String audioType;
 
     /**
      * Constructs a new {@code AudioMessage} with all metadata provided by the

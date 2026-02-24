@@ -22,7 +22,7 @@ import com.zoho.arattai.core.Message;
  * uncompressed size) is captured.
  *
  * <p>
- * All fields are immutable ({@code private final}) and initialised at
+ * All fields are immutable ({@code public final}) and initialised at
  * construction time.
  *
  * @author Zoho Arattai
@@ -37,16 +37,16 @@ public class StickerMessage extends Message {
      * The filename of the sticker file as stored inside the export ZIP
      * (e.g., {@code "STK-20260102-WA0003.webp"}).
      */
-    private final String stickerName;
+    public final String stickerName;
 
     /** The uncompressed file size of the sticker in bytes. */
-    private final int stickerSize;
+    public final int stickerSize;
 
     /**
      * The lowercase file extension of the sticker.
      * Always {@code "webp"} for WhatsApp stickers.
      */
-    private final String stickerType;
+    public final String stickerType;
 
     /**
      * Constructs a new {@code StickerMessage} with all metadata provided by the
