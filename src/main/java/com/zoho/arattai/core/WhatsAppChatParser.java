@@ -246,7 +246,7 @@ public class WhatsAppChatParser {
      * @param content    the raw message content
      * @param mediaFiles the index of files present in the ZIP
      * @param type       the expected category (image/video/audio, etc.)
-     * @return the matching MediaEntry, or null if not found
+     * @return the matching MediaEntry
      */
     public static MediaEntry findMedia(String content, Map<String, MediaEntry> mediaFiles, String type) {
         String lc = content.toLowerCase();
