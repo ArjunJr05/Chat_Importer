@@ -149,74 +149,50 @@ public class App {
      * @param chatName the name of the chat, printed on each line for context
      */
     public static void printMessage(Message msg, String chatName) {
+        System.out.println("Chat Name: " + chatName);
+        System.out.println("Sender: " + msg.sender);
+        System.out.println("Timestamp: " + fmt(msg.timestamp));
+        System.out.println("Message Type: " + msg.messageType);
+
         if (msg instanceof TextMessage) {
             TextMessage m = (TextMessage) msg;
-            System.out.println("Chat Name: " + chatName);
-            System.out.println("Sender: " + m.getTextSender());
-            System.out.println("Timestamp: " + fmt(m.getTextTimestamp()));
-            System.out.println("Message Type: " + m.getTextMessageType());
             System.out.println("Text: " + m.getText());
 
         } else if (msg instanceof ImageMessage) {
             ImageMessage m = (ImageMessage) msg;
-            System.out.println("Type: IMAGE");
-            System.out.println("Chat Name: " + chatName);
-            System.out.println("Sender: " + m.getImageSender());
-            System.out.println("Timestamp: " + fmt(m.getImageTimestamp()));
-            System.out.println("Message Type: " + m.getImageMessageType());
-            System.out.println("Image Name: " + m.getImageName());
-            System.out.println("Image Height: " + m.getImageHeight());
-            System.out.println("Image Width: " + m.getImageWidth());
-            System.out.println("Image Size: " + m.getImageSize() + " bytes");
-            System.out.println("Image Type: " + m.getImageType());
+            System.out.println("Image Name: " + m.getName());
+            System.out.println("Image Height: " + m.getHeight());
+            System.out.println("Image Width: " + m.getWidth());
+            System.out.println("Image Size: " + m.getSize() + " bytes");
+            System.out.println("Image Type: " + m.getType());
 
         } else if (msg instanceof VideoMessage) {
             VideoMessage m = (VideoMessage) msg;
-            System.out.println("Type: VIDEO");
-            System.out.println("Chat Name: " + chatName);
-            System.out.println("Sender: " + m.getVideoSender());
-            System.out.println("Timestamp: " + fmt(m.getVideoTimestamp()));
-            System.out.println("Message Type: " + m.getVideoMessageType());
-            System.out.println("Video Name: " + m.getVideoName());
-            System.out.println("Video Size: " + m.getVideoSize() + " bytes");
-            System.out.println("Video Duration: " + m.getVideoDuration());
-            System.out.println("Video Type: " + m.getVideoType());
-            System.out.println("Video Width: " + m.getVideoWidth());
-            System.out.println("Video Height: " + m.getVideoHeight());
+            System.out.println("Video Name: " + m.getName());
+            System.out.println("Video Size: " + m.getSize() + " bytes");
+            System.out.println("Video Duration: " + m.getDuration());
+            System.out.println("Video Type: " + m.getType());
+            System.out.println("Video Width: " + m.getWidth());
+            System.out.println("Video Height: " + m.getHeight());
 
         } else if (msg instanceof AudioMessage) {
             AudioMessage m = (AudioMessage) msg;
-            System.out.println("Type: AUDIO");
-            System.out.println("Chat Name: " + chatName);
-            System.out.println("Sender: " + m.getAudioSender());
-            System.out.println("Timestamp: " + fmt(m.getAudioTimestamp()));
-            System.out.println("Message Type: " + m.getAudioMessageType());
-            System.out.println("Audio Name: " + m.getAudioName());
-            System.out.println("Audio Size: " + m.getAudioSize() + " bytes");
-            System.out.println("Audio Duration: " + m.getAudioDuration());
-            System.out.println("Audio Type: " + m.getAudioType());
+            System.out.println("Audio Name: " + m.getName());
+            System.out.println("Audio Size: " + m.getSize() + " bytes");
+            System.out.println("Audio Duration: " + m.getDuration());
+            System.out.println("Audio Type: " + m.getType());
 
         } else if (msg instanceof DocumentMessage) {
             DocumentMessage m = (DocumentMessage) msg;
-            System.out.println("Type: DOCUMENT");
-            System.out.println("Chat Name: " + chatName);
-            System.out.println("Sender: " + m.getDocumentSender());
-            System.out.println("Timestamp: " + fmt(m.getDocumentTimestamp()));
-            System.out.println("Message Type: " + m.getDocumentMessageType());
-            System.out.println("Document Name: " + m.getDocumentName());
-            System.out.println("Document Type: " + m.getDocumentType());
-            System.out.println("Document Size: " + m.getDocumentSize() + " bytes");
+            System.out.println("Document Name: " + m.getName());
+            System.out.println("Document Type: " + m.getType());
+            System.out.println("Document Size: " + m.getSize() + " bytes");
 
         } else if (msg instanceof StickerMessage) {
             StickerMessage m = (StickerMessage) msg;
-            System.out.println("Type: STICKER");
-            System.out.println("Chat Name: " + chatName);
-            System.out.println("Sender: " + m.getStickerSender());
-            System.out.println("Timestamp: " + fmt(m.getStickerTimestamp()));
-            System.out.println("Message Type: " + m.getStickerMessageType());
-            System.out.println("Sticker Name: " + m.getStickerName());
-            System.out.println("Sticker Type: " + m.getStickerType());
-            System.out.println("Sticker Size: " + m.getStickerSize() + " bytes");
+            System.out.println("Sticker Name: " + m.getName());
+            System.out.println("Sticker Type: " + m.getType());
+            System.out.println("Sticker Size: " + m.getSize() + " bytes");
         }
     }
 

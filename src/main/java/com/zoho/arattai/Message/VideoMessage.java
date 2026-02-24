@@ -35,61 +35,61 @@ import com.zoho.arattai.core.Message;
 public class VideoMessage extends Message {
 
     /** The filename of the video file as stored inside the export ZIP. */
-    public final String videoName;
+    public final String name;
 
     /** The uncompressed file size of the video in bytes. */
-    public final int videoSize;
+    public final int size;
 
     /**
      * The playback duration of the video, formatted as {@code "m:ss"}
      * (e.g., {@code "2:45"}). Defaults to {@code "0:00"} when extraction fails.
      */
-    public final String videoDuration;
+    public final String duration;
 
     /**
      * The lowercase file extension identifying the video container format
      * (e.g., {@code "mp4"}, {@code "mkv"}).
      */
-    public final String videoType;
+    public final String type;
 
     /**
      * The horizontal resolution of the video in pixels, or {@code 0} if unknown.
      */
-    public final int videoWidth;
+    public final int width;
 
     /**
      * The vertical resolution of the video in pixels, or {@code 0} if unknown.
      */
-    public final int videoHeight;
+    public final int height;
 
     /**
      * Constructs a new {@code VideoMessage} with all metadata provided by the
      * parser.
      *
-     * @param videoName     the video filename inside the ZIP; must not be
-     *                      {@code null}
-     * @param videoSize     the file size in bytes
-     * @param videoDuration the playback duration as {@code "m:ss"}; must not be
-     *                      {@code null}
-     * @param videoType     the lowercase file extension; must not be {@code null}
-     * @param videoWidth    the video width in pixels ({@code 0} if undetectable)
-     * @param videoHeight   the video height in pixels ({@code 0} if undetectable)
-     * @param sender        the display name of the sender; must not be {@code null}
-     * @param timestamp     the date and time the message was sent; must not be
-     *                      {@code null}
-     * @param messageType   the type classification; expected to be
-     *                      {@link MessageType#VIDEO}
+     * @param name        the video filename inside the ZIP; must not be
+     *                    {@code null}
+     * @param size        the file size in bytes
+     * @param duration    the playback duration as {@code "m:ss"}; must not be
+     *                    {@code null}
+     * @param type        the lowercase file extension; must not be {@code null}
+     * @param width       the video width in pixels ({@code 0} if undetectable)
+     * @param height      the video height in pixels ({@code 0} if undetectable)
+     * @param sender      the display name of the sender; must not be {@code null}
+     * @param timestamp   the date and time the message was sent; must not be
+     *                    {@code null}
+     * @param messageType the type classification; expected to be
+     *                    {@link MessageType#VIDEO}
      */
-    public VideoMessage(String videoName, int videoSize, String videoDuration, String videoType,
-            int videoWidth, int videoHeight,
+    public VideoMessage(String name, int size, String duration, String type,
+            int width, int height,
             String sender, java.util.Date timestamp, MessageType messageType) {
         super(sender, timestamp, messageType);
-        this.videoName = videoName;
-        this.videoSize = videoSize;
-        this.videoDuration = videoDuration;
-        this.videoType = videoType;
-        this.videoWidth = videoWidth;
-        this.videoHeight = videoHeight;
+        this.name = name;
+        this.size = size;
+        this.duration = duration;
+        this.type = type;
+        this.width = width;
+        this.height = height;
     }
 
     /**
@@ -97,8 +97,8 @@ public class VideoMessage extends Message {
      *
      * @return the video filename; never {@code null}
      */
-    public String getVideoName() {
-        return videoName;
+    public String getName() {
+        return name;
     }
 
     /**
@@ -106,8 +106,8 @@ public class VideoMessage extends Message {
      *
      * @return file size in bytes
      */
-    public int getVideoSize() {
-        return videoSize;
+    public int getSize() {
+        return size;
     }
 
     /**
@@ -116,8 +116,8 @@ public class VideoMessage extends Message {
      * @return duration string in {@code "m:ss"} format (e.g., {@code "2:45"}),
      *         or {@code "0:00"} if extraction failed; never {@code null}
      */
-    public String getVideoDuration() {
-        return videoDuration;
+    public String getDuration() {
+        return duration;
     }
 
     /**
@@ -126,8 +126,8 @@ public class VideoMessage extends Message {
      * @return format extension (e.g., {@code "mp4"}, {@code "mov"}); never
      *         {@code null}
      */
-    public String getVideoType() {
-        return videoType;
+    public String getType() {
+        return type;
     }
 
     /**
@@ -135,8 +135,8 @@ public class VideoMessage extends Message {
      *
      * @return video width, or {@code 0} if the dimensions could not be determined
      */
-    public int getVideoWidth() {
-        return videoWidth;
+    public int getWidth() {
+        return width;
     }
 
     /**
@@ -144,34 +144,7 @@ public class VideoMessage extends Message {
      *
      * @return video height, or {@code 0} if the dimensions could not be determined
      */
-    public int getVideoHeight() {
-        return videoHeight;
-    }
-
-    /**
-     * Returns the display name of the participant who sent this video.
-     *
-     * @return the sender name; never {@code null}
-     */
-    public String getVideoSender() {
-        return sender;
-    }
-
-    /**
-     * Returns the date and time at which this video message was sent.
-     *
-     * @return the message timestamp; never {@code null}
-     */
-    public java.util.Date getVideoTimestamp() {
-        return timestamp;
-    }
-
-    /**
-     * Returns the message type classification for this message.
-     *
-     * @return {@link MessageType#VIDEO}
-     */
-    public MessageType getVideoMessageType() {
-        return messageType;
+    public int getHeight() {
+        return height;
     }
 }

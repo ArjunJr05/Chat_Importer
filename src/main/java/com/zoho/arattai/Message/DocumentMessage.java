@@ -30,37 +30,37 @@ import com.zoho.arattai.core.Message;
 public class DocumentMessage extends Message {
 
     /** The filename of the document as stored inside the export ZIP. */
-    public final String documentName;
+    public final String name;
 
     /**
      * The lowercase file extension identifying the document format
      * (e.g., {@code "pdf"}, {@code "docx"}, {@code "zip"}).
      */
-    public final String documentType;
+    public final String type;
 
     /** The uncompressed file size of the document in bytes. */
-    public final int documentSize;
+    public final int size;
 
     /**
      * Constructs a new {@code DocumentMessage} with all metadata provided by the
      * parser.
      *
-     * @param documentName the document filename inside the ZIP; must not be
-     *                     {@code null}
-     * @param documentType the lowercase file extension; must not be {@code null}
-     * @param documentSize the file size in bytes
-     * @param sender       the display name of the sender; must not be {@code null}
-     * @param timestamp    the date and time the message was sent; must not be
-     *                     {@code null}
-     * @param messageType  the type classification; expected to be
-     *                     {@link MessageType#DOCUMENT}
+     * @param name        the document filename inside the ZIP; must not be
+     *                    {@code null}
+     * @param type        the lowercase file extension; must not be {@code null}
+     * @param size        the file size in bytes
+     * @param sender      the display name of the sender; must not be {@code null}
+     * @param timestamp   the date and time the message was sent; must not be
+     *                    {@code null}
+     * @param messageType the type classification; expected to be
+     *                    {@link MessageType#DOCUMENT}
      */
-    public DocumentMessage(String documentName, String documentType, int documentSize,
+    public DocumentMessage(String name, String type, int size,
             String sender, java.util.Date timestamp, MessageType messageType) {
         super(sender, timestamp, messageType);
-        this.documentName = documentName;
-        this.documentType = documentType;
-        this.documentSize = documentSize;
+        this.name = name;
+        this.type = type;
+        this.size = size;
     }
 
     /**
@@ -68,8 +68,8 @@ public class DocumentMessage extends Message {
      *
      * @return the document filename; never {@code null}
      */
-    public String getDocumentName() {
-        return documentName;
+    public String getName() {
+        return name;
     }
 
     /**
@@ -78,8 +78,8 @@ public class DocumentMessage extends Message {
      * @return format extension (e.g., {@code "pdf"}, {@code "zip"}); never
      *         {@code null}
      */
-    public String getDocumentType() {
-        return documentType;
+    public String getType() {
+        return type;
     }
 
     /**
@@ -87,34 +87,7 @@ public class DocumentMessage extends Message {
      *
      * @return file size in bytes
      */
-    public int getDocumentSize() {
-        return documentSize;
-    }
-
-    /**
-     * Returns the display name of the participant who sent this document.
-     *
-     * @return the sender name; never {@code null}
-     */
-    public String getDocumentSender() {
-        return sender;
-    }
-
-    /**
-     * Returns the date and time at which this document message was sent.
-     *
-     * @return the message timestamp; never {@code null}
-     */
-    public java.util.Date getDocumentTimestamp() {
-        return timestamp;
-    }
-
-    /**
-     * Returns the message type classification for this message.
-     *
-     * @return {@link MessageType#DOCUMENT}
-     */
-    public MessageType getDocumentMessageType() {
-        return messageType;
+    public int getSize() {
+        return size;
     }
 }

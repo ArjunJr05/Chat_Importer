@@ -59,30 +59,4 @@ public class TextMessage extends Message {
         return text;
     }
 
-    /**
-     * Returns the display name of the participant who sent this message.
-     *
-     * @return the sender name; never {@code null}
-     */
-    public String getTextSender() {
-        return sender;
-    }
-
-    /**
-     * Returns the date and time at which this message was sent.
-     *
-     * @return the message timestamp; never {@code null}
-     */
-    public java.util.Date getTextTimestamp() {
-        return timestamp;
-    }
-
-    /**
-     * Returns the message type classification for this message.
-     *
-     * @return {@link MessageType#TEXT}
-     */
-    public MessageType getTextMessageType() {
-        return messageType;
-    }
 }

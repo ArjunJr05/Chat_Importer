@@ -40,46 +40,46 @@ import com.zoho.arattai.core.Message;
 public class AudioMessage extends Message {
 
     /** The filename of the audio file as stored inside the export ZIP. */
-    public final String audioName;
+    public final String name;
 
     /** The uncompressed file size of the audio in bytes. */
-    public final int audioSize;
+    public final int size;
 
     /**
      * The playback duration of the audio clip, formatted as {@code "m:ss"}
      * (e.g., {@code "0:05"}). Defaults to {@code "0:00"} when extraction fails.
      */
-    public final String audioDuration;
+    public final String duration;
 
     /**
      * The lowercase file extension identifying the audio format
      * (e.g., {@code "opus"}, {@code "mp3"}).
      */
-    public final String audioType;
+    public final String type;
 
     /**
      * Constructs a new {@code AudioMessage} with all metadata provided by the
      * parser.
      *
-     * @param audioName     the audio filename inside the ZIP; must not be
-     *                      {@code null}
-     * @param audioSize     the file size in bytes
-     * @param audioDuration the playback duration as {@code "m:ss"}; must not be
-     *                      {@code null}
-     * @param audioType     the lowercase file extension; must not be {@code null}
-     * @param sender        the display name of the sender; must not be {@code null}
-     * @param timestamp     the date and time the message was sent; must not be
-     *                      {@code null}
-     * @param messageType   the type classification; expected to be
-     *                      {@link MessageType#AUDIO}
+     * @param name        the audio filename inside the ZIP; must not be
+     *                    {@code null}
+     * @param size        the file size in bytes
+     * @param duration    the playback duration as {@code "m:ss"}; must not be
+     *                    {@code null}
+     * @param type        the lowercase file extension; must not be {@code null}
+     * @param sender      the display name of the sender; must not be {@code null}
+     * @param timestamp   the date and time the message was sent; must not be
+     *                    {@code null}
+     * @param messageType the type classification; expected to be
+     *                    {@link MessageType#AUDIO}
      */
-    public AudioMessage(String audioName, int audioSize, String audioDuration, String audioType,
+    public AudioMessage(String name, int size, String duration, String type,
             String sender, java.util.Date timestamp, MessageType messageType) {
         super(sender, timestamp, messageType);
-        this.audioName = audioName;
-        this.audioSize = audioSize;
-        this.audioDuration = audioDuration;
-        this.audioType = audioType;
+        this.name = name;
+        this.size = size;
+        this.duration = duration;
+        this.type = type;
     }
 
     /**
@@ -87,8 +87,8 @@ public class AudioMessage extends Message {
      *
      * @return the audio filename; never {@code null}
      */
-    public String getAudioName() {
-        return audioName;
+    public String getName() {
+        return name;
     }
 
     /**
@@ -96,8 +96,8 @@ public class AudioMessage extends Message {
      *
      * @return file size in bytes
      */
-    public int getAudioSize() {
-        return audioSize;
+    public int getSize() {
+        return size;
     }
 
     /**
@@ -106,8 +106,8 @@ public class AudioMessage extends Message {
      * @return duration string in {@code "m:ss"} format (e.g., {@code "0:05"}),
      *         or {@code "0:00"} if extraction failed; never {@code null}
      */
-    public String getAudioDuration() {
-        return audioDuration;
+    public String getDuration() {
+        return duration;
     }
 
     /**
@@ -116,34 +116,7 @@ public class AudioMessage extends Message {
      * @return format extension (e.g., {@code "opus"}, {@code "mp3"}); never
      *         {@code null}
      */
-    public String getAudioType() {
-        return audioType;
-    }
-
-    /**
-     * Returns the display name of the participant who sent this audio message.
-     *
-     * @return the sender name; never {@code null}
-     */
-    public String getAudioSender() {
-        return sender;
-    }
-
-    /**
-     * Returns the date and time at which this audio message was sent.
-     *
-     * @return the message timestamp; never {@code null}
-     */
-    public java.util.Date getAudioTimestamp() {
-        return timestamp;
-    }
-
-    /**
-     * Returns the message type classification for this message.
-     *
-     * @return {@link MessageType#AUDIO}
-     */
-    public MessageType getAudioMessageType() {
-        return messageType;
+    public String getType() {
+        return type;
     }
 }

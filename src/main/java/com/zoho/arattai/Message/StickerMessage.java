@@ -37,25 +37,25 @@ public class StickerMessage extends Message {
      * The filename of the sticker file as stored inside the export ZIP
      * (e.g., {@code "STK-20260102-WA0003.webp"}).
      */
-    public final String stickerName;
+    public final String name;
 
     /** The uncompressed file size of the sticker in bytes. */
-    public final int stickerSize;
+    public final int size;
 
     /**
      * The lowercase file extension of the sticker.
      * Always {@code "webp"} for WhatsApp stickers.
      */
-    public final String stickerType;
+    public final String type;
 
     /**
      * Constructs a new {@code StickerMessage} with all metadata provided by the
      * parser.
      *
-     * @param stickerName the sticker filename inside the ZIP; must not be
+     * @param name        the sticker filename inside the ZIP; must not be
      *                    {@code null}
-     * @param stickerSize the file size in bytes
-     * @param stickerType the lowercase file extension (typically {@code "webp"});
+     * @param size        the file size in bytes
+     * @param type        the lowercase file extension (typically {@code "webp"});
      *                    must not be {@code null}
      * @param sender      the display name of the sender; must not be {@code null}
      * @param timestamp   the date and time the message was sent; must not be
@@ -63,12 +63,12 @@ public class StickerMessage extends Message {
      * @param messageType the type classification; expected to be
      *                    {@link MessageType#STICKER}
      */
-    public StickerMessage(String stickerName, int stickerSize, String stickerType,
+    public StickerMessage(String name, int size, String type,
             String sender, java.util.Date timestamp, MessageType messageType) {
         super(sender, timestamp, messageType);
-        this.stickerName = stickerName;
-        this.stickerSize = stickerSize;
-        this.stickerType = stickerType;
+        this.name = name;
+        this.size = size;
+        this.type = type;
     }
 
     /**
@@ -77,8 +77,8 @@ public class StickerMessage extends Message {
      * @return the sticker filename (e.g., {@code "STK-20260102-WA0003.webp"});
      *         never {@code null}
      */
-    public String getStickerName() {
-        return stickerName;
+    public String getName() {
+        return name;
     }
 
     /**
@@ -86,8 +86,8 @@ public class StickerMessage extends Message {
      *
      * @return file size in bytes
      */
-    public int getStickerSize() {
-        return stickerSize;
+    public int getSize() {
+        return size;
     }
 
     /**
@@ -96,34 +96,7 @@ public class StickerMessage extends Message {
      * @return format extension — always {@code "webp"} for WhatsApp stickers;
      *         never {@code null}
      */
-    public String getStickerType() {
-        return stickerType;
-    }
-
-    /**
-     * Returns the display name of the participant who sent this sticker.
-     *
-     * @return the sender name; never {@code null}
-     */
-    public String getStickerSender() {
-        return sender;
-    }
-
-    /**
-     * Returns the date and time at which this sticker message was sent.
-     *
-     * @return the message timestamp; never {@code null}
-     */
-    public java.util.Date getStickerTimestamp() {
-        return timestamp;
-    }
-
-    /**
-     * Returns the message type classification for this message.
-     *
-     * @return {@link MessageType#STICKER}
-     */
-    public MessageType getStickerMessageType() {
-        return messageType;
+    public String getType() {
+        return type;
     }
 }

@@ -34,47 +34,47 @@ import com.zoho.arattai.core.Message;
 public class ImageMessage extends Message {
 
     /** The filename of the image as stored inside the export ZIP. */
-    public final String imageName;
+    public final String name;
 
     /** The vertical dimension of the image in pixels, or {@code 0} if unknown. */
-    public final int imageHeight;
+    public final int height;
 
     /** The horizontal dimension of the image in pixels, or {@code 0} if unknown. */
-    public final int imageWidth;
+    public final int width;
 
     /** The uncompressed file size of the image in bytes. */
-    public final int imageSize;
+    public final int size;
 
     /**
      * The lowercase file extension that identifies the image format
      * (e.g., {@code "jpg"}, {@code "png"}, {@code "webp"}).
      */
-    public final String imageType;
+    public final String type;
 
     /**
      * Constructs a new {@code ImageMessage} with all metadata provided by the
      * parser.
      *
-     * @param imageName   the image filename inside the ZIP; must not be
+     * @param name        the image filename inside the ZIP; must not be
      *                    {@code null}
-     * @param imageHeight the image height in pixels ({@code 0} if undetectable)
-     * @param imageWidth  the image width in pixels ({@code 0} if undetectable)
-     * @param imageSize   the file size in bytes
-     * @param imageType   the lowercase file extension; must not be {@code null}
+     * @param height      the image height in pixels ({@code 0} if undetectable)
+     * @param width       the image width in pixels ({@code 0} if undetectable)
+     * @param size        the file size in bytes
+     * @param type        the lowercase file extension; must not be {@code null}
      * @param sender      the display name of the sender; must not be {@code null}
      * @param timestamp   the date and time the message was sent; must not be
      *                    {@code null}
      * @param messageType the type classification; expected to be
      *                    {@link MessageType#IMAGE}
      */
-    public ImageMessage(String imageName, int imageHeight, int imageWidth, int imageSize,
-            String imageType, String sender, java.util.Date timestamp, MessageType messageType) {
+    public ImageMessage(String name, int height, int width, int size,
+            String type, String sender, java.util.Date timestamp, MessageType messageType) {
         super(sender, timestamp, messageType);
-        this.imageName = imageName;
-        this.imageHeight = imageHeight;
-        this.imageWidth = imageWidth;
-        this.imageSize = imageSize;
-        this.imageType = imageType;
+        this.name = name;
+        this.height = height;
+        this.width = width;
+        this.size = size;
+        this.type = type;
     }
 
     /**
@@ -82,8 +82,8 @@ public class ImageMessage extends Message {
      *
      * @return the image filename; never {@code null}
      */
-    public String getImageName() {
-        return imageName;
+    public String getName() {
+        return name;
     }
 
     /**
@@ -91,8 +91,8 @@ public class ImageMessage extends Message {
      *
      * @return image height, or {@code 0} if the dimensions could not be determined
      */
-    public int getImageHeight() {
-        return imageHeight;
+    public int getHeight() {
+        return height;
     }
 
     /**
@@ -100,8 +100,8 @@ public class ImageMessage extends Message {
      *
      * @return image width, or {@code 0} if the dimensions could not be determined
      */
-    public int getImageWidth() {
-        return imageWidth;
+    public int getWidth() {
+        return width;
     }
 
     /**
@@ -109,8 +109,8 @@ public class ImageMessage extends Message {
      *
      * @return file size in bytes
      */
-    public int getImageSize() {
-        return imageSize;
+    public int getSize() {
+        return size;
     }
 
     /**
@@ -119,34 +119,7 @@ public class ImageMessage extends Message {
      * @return image format extension (e.g., {@code "jpg"}, {@code "png"}); never
      *         {@code null}
      */
-    public String getImageType() {
-        return imageType;
-    }
-
-    /**
-     * Returns the display name of the participant who sent this image.
-     *
-     * @return the sender name; never {@code null}
-     */
-    public String getImageSender() {
-        return sender;
-    }
-
-    /**
-     * Returns the date and time at which this image message was sent.
-     *
-     * @return the message timestamp; never {@code null}
-     */
-    public java.util.Date getImageTimestamp() {
-        return timestamp;
-    }
-
-    /**
-     * Returns the message type classification for this message.
-     *
-     * @return {@link MessageType#IMAGE}
-     */
-    public MessageType getImageMessageType() {
-        return messageType;
+    public String getType() {
+        return type;
     }
 }
