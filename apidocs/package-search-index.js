@@ -1,1 +1,1 @@
-packageSearchIndex = [{"l":"All Packages","u":"allpackages-index.html"},{"l":"com.zoho.arattai"},{"l":"com.zoho.arattai.ExtendedClasses"},{"l":"com.zoho.arattai.MainClass"},{"l":"com.zoho.arattai.Model"}];updateSearchResults();
+packageSearchIndex = [{"l":"All Packages","u":"allpackages-index.html"},{"l":"com.zoho.arattai"},{"l":"com.zoho.arattai.core"},{"l":"com.zoho.arattai.Message"}];updateSearchResults();
